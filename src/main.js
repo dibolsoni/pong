@@ -1,15 +1,13 @@
 import {PerspectiveCamera, BoxGeometry, MeshBasicMaterial, WebGLRenderer, Scene, Mesh} from 'three';
-
+import CameraController from './Camera/CameraController';
 
 function main(dom_element) {
-    const dom = dom_element || document.body;
-    const renderer = new WebGLRenderer();
+    const canvas = dom_element || document.body;
+    const renderer = new WebGLRenderer({canvas});
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); 
 
-    const fov = 75;
-    const aspect = 2;  // the canvas default
-    const near = 0.1;
-    const far = 5;
-    const camera = new PerspectiveCamera(fov, aspect, near, far);
+
+    const camera = new CameraController();
     camera.position.z = 2;
 
     const scene = new Scene();
@@ -29,14 +27,13 @@ function main(dom_element) {
 
         cube.rotation.x = time;
         cube.rotation.y = time;
+        camera.move_left(time/60);
 
         renderer.render(scene, camera);
 
         requestAnimationFrame(render);
     }
     requestAnimationFrame(render);
-    dom.appendChild(renderer.domElement);
-
 }
 
 export default main;
