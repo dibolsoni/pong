@@ -39,4 +39,4 @@ function main(dom_element) {
 
 }
 
-main();
+export default main;
