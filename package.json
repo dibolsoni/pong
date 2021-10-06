@@ -1,0 +1,29 @@
+{
+  "name": "pong",
+  "version": "0.0.1",
+  "description": "A pong game made in ThreeJS",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "test": "jest --watch"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.15.4",
+    "@babel/preset-env": "^7.15.6",
+    "install": "^0.13.0",
+    "jest": "^27.2.4",
+    "npm": "^7.24.2"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
+  "dependencies": {
+    "jshint": "^2.13.1"
+  },
+  "author": "dibolsoni",
+  "license": "MIT"
+}
