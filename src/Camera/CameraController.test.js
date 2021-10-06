@@ -25,12 +25,22 @@ describe('a camera', () => {
 
     });
 
+    it('aa', () => {
+        const coord = 'x';
+        const coords = {x: 10}
+        let position = {x:0, y:0, setX: (x) => {position.x = x}}
+        const func_name = 'set'+coord.toUpperCase()
+        expect(func_name).toBe('setX')
+        position[func_name](coords[coord]);
+        expect(position.x).toBe(10)
+    });
+
     it('linear left/right moves', () => {
         const old_pos = camera.position.x;
         const expected = old_pos - 1;
-        camera.move_horizontal(-1); 
+        camera.move({x: -1});
         expect(camera.position.x).toBe(expected);
-        camera.move_horizontal(+1);
+        camera.move({x: 1});
         expect(camera.position.x).toBe(old_pos);
     });
 
