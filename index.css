@@ -1,0 +1,10 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.webgl {
+    height: 90vh;
+    top: 0;
+    left: 0;
+}
