@@ -1,4 +1,4 @@
-import {PerspectiveCamera, BoxGeometry, MeshBasicMaterial, WebGLRenderer, Scene, Mesh} from 'three';
+import {BoxGeometry, MeshBasicMaterial, WebGLRenderer, Scene, Mesh} from 'three';
 import CameraController from './Camera/CameraController';
 
 function main(dom_element) {

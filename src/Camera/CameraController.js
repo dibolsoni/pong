@@ -1,7 +1,6 @@
 import {PerspectiveCamera} from "three";
 
 export default class CameraController extends PerspectiveCamera {
-    #default_values;
     constructor(state = {fov: 75, aspect: 2, near: 0.1, far: 5}) {
         const {fov, aspect, near, far} = state;
         super(fov, aspect, near, far);
