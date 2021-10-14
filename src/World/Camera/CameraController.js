@@ -1,32 +1,36 @@
+import {produce, immerable} from "immer";
 import {PerspectiveCamera} from "three";
 
+
 export default class CameraController extends PerspectiveCamera {
+    [immerable] = true
     constructor(state = {fov: 75, aspect: 2, near: 0.1, far: 5}) {
         const {fov, aspect, near, far} = state;
         super(fov, aspect, near, far);
-        this.default_values = state;
+        this.state = state;
     }
 
     reset_state() {
-        for (const key in this.default_values) {
-            const value = this.default_values[key];
+        for (const key in this.state) {
+            const value = this.state[key];
             this[key] = value;
         }
     }
 
     /**
-     * type: int
+     * move to a x,y,z position
+     * @param object
+     *  @member x: int 
+     *  @member y: int
+     *  @member z: int
      */
-    move(coords = {x: 0, y: 0, z: 0}) {
-        const old_pos = this.position
-        for (const coord in coords) {
-            if (Object.hasOwnProperty.call(old_pos, coord) && old_pos[coord] != coords[coord]) {
-                const new_value = old_pos[coord] + coords[coord] 
-                const method_name = "set" + coord.toUpperCase();
-                this.position[method_name](new_value);
-                this.updateProjectionMatrix();
-            }
-        }
+    move(coords) {
+        if (coords.x !== this.position.x)
+            produce(this, draft => {draft.position.x += coords.x;});
+        if (coords.y !== this.position.y)
+            produce(this, draft => {draft.position.y += coords.y;});
+        if (coords.z !== this.position.z)
+            produce(this, draft => {draft.position.z += coords.z;});
     }
 
 }
