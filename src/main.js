@@ -8,7 +8,7 @@ function main(dom) {
     if (dom.tagName.toUpperCase() !== 'CANVAS')
         throw Error("can't initiate without a canvas");
     const canvas = dom;
-    const world = new World(canvas);
+    const world = new World({canvas});
     world.start();
 }
 
