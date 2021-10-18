@@ -4,11 +4,14 @@ module.exports = {
         "es2021": true,
         "jest": true
     },
-    "extends": "eslint:recommended",
+    "extends": [
+        "eslint:recommended",
+        "plugin:jest/all"
+    ],
+    "parser": "@babel/eslint-parser",
     "parserOptions": {
         "ecmaVersion": 12,
         "sourceType": "module"
     },
-    "rules": {
-    }
+    "plugins":["jest"]
 };
