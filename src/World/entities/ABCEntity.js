@@ -1,6 +1,6 @@
 const {assert} = console;
 
-class Entity{
+class ABCEntity{
     constructor(path_to_object){
         assert(path_to_object, "must have a path to load a object");
         this.path_to_obj = path_to_object;    
@@ -13,4 +13,4 @@ class Entity{
 
 }
 
-export default Entity;
+export default ABCEntity;
