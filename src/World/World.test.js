@@ -17,8 +17,7 @@ describe('World', () => {
     let world;
     beforeEach(() => {
         const canvas = document.createElement('canvas');
-        const state = {canvas};
-        world = new World(state);
+        world = new World({canvas});
     })
 
     afterEach(() => {
