@@ -29,9 +29,9 @@ class World {
 
     load() { }
 
-    start() {this.loop.start(); }
+    start() {this.state.loop.start(); }
 
-    stop() { this.loop.stop(); }
+    stop() { this.state.loop.stop(); }
 
 }
 
