@@ -16,8 +16,6 @@ class World {
     constructor(state) {
         assert(state.canvas, "must have a html canvas element");
         this.state = state;
-        this.state.entities = new Map();
-        this.init();
     }
 
     init() {

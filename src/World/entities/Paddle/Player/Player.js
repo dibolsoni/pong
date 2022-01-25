@@ -1,5 +1,3 @@
-import {immerable, produce} from 'immer';
-
 const {assert} = console;
 
 /**
@@ -8,7 +6,6 @@ const {assert} = console;
  * @param {object} color
  */ 
 class Player {
-    [immerable] = true
     constructor(state){
         this.state = state
         assert(state.name, 'must have a name');

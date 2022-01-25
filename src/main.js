@@ -6,6 +6,7 @@ function main() {
     const gui = new dat.GUI();
     const canvas = document.querySelector('canvas.webgl', gui);
     const world = new World({canvas});
+    world.init()
     world.start();
 }
 
